@@ -11,9 +11,9 @@ class BookingAutomation:
 
     def run(self):
         try:
-            self.booking_page.open_url("https://new.negombo.it/")
+            self.booking_page.open_url("http://localhost:3000/")
             time.sleep(3)
-            self.booking_page.open_url("https://new.negombo.it/places/balzeAlte")
+            self.booking_page.open_url("http://localhost:3000/places/balzeAlte")
 
             try:
 
@@ -27,19 +27,19 @@ class BookingAutomation:
             except:
                 print("Website is glitching, trying again...")
 
-            self.booking_page.fill_booking_form("Test User", "test@example.com", "7777777777", "2", "2")
+            self.booking_page.fill_booking_form("Test User", "mirkamol@extramus.eu", "mirkamol@extramus.eu","7777777777", "2", "0")
             self.booking_page.accept_terms()
 
-            time.sleep(5)
+            time.sleep(2)
             self.booking_page.confirm_booking()
             self.booking_page.handle_alert(action="dismiss")
 
-            time.sleep(5)
+            time.sleep(2)
             self.booking_page.confirm_booking()
             self.booking_page.handle_alert(action="accept")
 
             self.payment_page.fill_payment_details("Name", "Surname", "5256103270096532", "11", "2036", "123")
-            time.sleep(5)
+            time.sleep(2)
             self.payment_page.submit_payment()
 
         except Exception as e:

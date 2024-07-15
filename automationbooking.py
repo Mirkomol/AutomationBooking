@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
+
 # Base class for common WebDriver setup and teardown
 class BasePage:
     def __init__(self, driver):
@@ -34,9 +35,10 @@ class BasePage:
 
 # Derived class for specific page interactions
 class BookingPage(BasePage):
-    def fill_booking_form(self, fullname, email, phone, no_of_adults, no_of_babies):
+    def fill_booking_form(self, fullname,confirm_email,email, phone, no_of_adults, no_of_babies):
         self.fill_input_field(By.NAME, "fullname", fullname)
         self.fill_input_field(By.NAME, "email", email)
+        self.fill_input_field(By.NAME, "confirm_email", confirm_email)
         self.fill_input_field(By.NAME, "phone_num", phone)
         self.select_dropdown(By.NAME, "no_of_adults", no_of_adults)
         self.select_dropdown(By.NAME, "no_of_babies", no_of_babies)
